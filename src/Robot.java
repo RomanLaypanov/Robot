@@ -1,34 +1,17 @@
 public class Robot {
     private int x = 0;
     private int y = 0;
-    private static String direction = String.valueOf(Direction.UP);
+    private static Direction direction = Direction.UP;
 
-    Robot(int x, int y, String direction) {
+    Robot(int x, int y, Direction direction) {
         this.x = x;
         this.y = y;
-        this.direction= direction;
+        this.direction = direction;
     }
 
 
     public Direction getDirection() {
-        Direction direction1 = Direction.valueOf(direction);
-
-        switch (direction1) {
-            case UP:
-                direction1 = Direction.UP;
-                break;
-            case DOWN:
-                direction1 = Direction.DOWN;
-                break;
-            case RIGHT:
-                direction1 = Direction.RIGHT;
-                break;
-            case LEFT:
-                direction1 = Direction.LEFT;
-                break;
-        }
-
-        return direction1;
+        return direction;
     }
 
     public int getX() {
@@ -42,41 +25,41 @@ public class Robot {
     Direction direction1 = getDirection();
 
     public void turnLeft() {
-        switch (direction1) {
+        switch (direction) {
             case UP:
-                direction1 = Direction.LEFT;
+                direction = Direction.LEFT;
                 break;
             case DOWN:
-                direction1 = Direction.RIGHT;
+                direction = Direction.RIGHT;
                 break;
             case RIGHT:
-                direction1 = Direction.UP;
+                direction = Direction.UP;
                 break;
             case LEFT:
-                direction1 = Direction.DOWN;
+                direction = Direction.DOWN;
                 break;
         }
     }
 
     public void turnRight() {
-        switch (direction1) {
+        switch (direction) {
             case UP:
-                direction1 = Direction.RIGHT;
+                direction = Direction.RIGHT;
                 break;
             case DOWN:
-                direction1 = Direction.LEFT;
+                direction = Direction.LEFT;
                 break;
             case RIGHT:
-                direction1 = Direction.DOWN;
+                direction = Direction.DOWN;
                 break;
             case LEFT:
-                direction1 = Direction.UP;
+                direction = Direction.UP;
                 break;
         }
     }
 
     public void stepForward() {
-        switch (direction1) {
+        switch (direction) {
             case UP:
                 y++;
                 break;
@@ -100,9 +83,9 @@ public class Robot {
             while (robot.getDirection() != Direction.LEFT) {
                 robot.turnLeft();
             }
-            while (tX != toX){
+            while (tX != toX) {
                 robot.stepForward();
-                System.out.println(robot.getX() + " " + robot.getY() + ". Направление взгляда: " + robot.getDirection());
+                System.out.println("x = " + robot.getX() + ", y =  " + robot.getY() + ". Направление взгляда: " + robot.getDirection());
                 tX--;
             }
         } else {
@@ -111,7 +94,7 @@ public class Robot {
             }
             while (tX != toX) {
                 robot.stepForward();
-                System.out.println(robot.getX() + " " + robot.getY() + ". Направление взгляда: " + robot.getDirection());
+                System.out.println("x = " + robot.getX() + ", y =  " + robot.getY() + ". Направление взгляда: " + robot.getDirection());
                 tX++;
             }
         }
@@ -122,7 +105,7 @@ public class Robot {
             }
             while (tY != toY) {
                 robot.stepForward();
-                System.out.println(robot.getX() + " " + robot.getY() + ". Направление взгляда: " + robot.getDirection());
+                System.out.println("x = " + robot.getX() + ", y =  " + robot.getY() + ". Направление взгляда: " + robot.getDirection());
                 tY--;
             }
 
@@ -132,7 +115,7 @@ public class Robot {
             }
             while (tY != toY) {
                 robot.stepForward();
-                System.out.println(robot.getX() + " " + robot.getY() + ". Направление взгляда: " + robot.getDirection());
+                System.out.println("x = " + robot.getX() + ", y =  " + robot.getY() + ". Направление взгляда: " + robot.getDirection());
                 tY++;
             }
         }
